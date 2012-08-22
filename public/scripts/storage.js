@@ -1,6 +1,6 @@
 
 
-urlQuest = "/v0.1/quests/";
+urlQuest = "http://socialquest.herokuapp.com/quests/";
 
 function localCreateUser(email){
 	globalUser = {
