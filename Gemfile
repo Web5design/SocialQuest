@@ -9,6 +9,7 @@ gem 'thin'
 gem 'devise'
 
 gem 'unicorn'
+gem 'heroku'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -20,7 +21,7 @@ end
 gem 'jquery-rails'
 
 group :test do
-  gem 'rspec'
+  gem 'rspec-rails'
   gem 'autotest'
 end
 
