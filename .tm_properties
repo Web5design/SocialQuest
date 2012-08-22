@@ -1,0 +1,12 @@
+projectDirectory    = "$CWD"
+windowTitle         = "$TM_DISPLAYNAME :: Project Name"
+exclude             = '{$exclude,log,tmp,.rsync_cache,.jhw-cache}'
+tabSize             = 2
+softTabs            = true
+showInvisibles      = true
+softWrap            = false
+
+TM_GIT = "/usr/local/bin/git"
+
+fontName = "DejaVu Sans Mono"
+fontSize = 16
