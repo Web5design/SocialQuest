@@ -9,6 +9,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'devise'
 
 gem 'unicorn'
+gem 'heroku'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
