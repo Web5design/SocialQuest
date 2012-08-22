@@ -3,10 +3,10 @@ Copyright 2012 SocialQuest Verein (TU Projects, TU Berlin, www.socialquest.org)
 
 __PREQUISITES__
 
-brew install postgresq
-git clone https://github.com/SocialQuest/SocialQuest.git .
-cd SocialQuest
-bundle install
+    brew install postgresql
+    git clone https://github.com/SocialQuest/SocialQuest.git .
+    cd SocialQuest
+    bundle install
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
