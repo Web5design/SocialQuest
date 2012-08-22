@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>
+        </title>
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+        <link rel="stylesheet" href="add.css" />
+        <style>
+            #map {
+                background: #CCC;
+                position: absolute;
+                top: 42px;
+                bottom: 0px;
+                right: 0px;
+                left: 0px;
+            }
+            #hint-select-location {
+                bottom: 0;
+                left: 0;
+                right: 0;
+                position: absolute;
+                text-align: center;
+                background: rgba(255,255,255,0.5);
+                padding: 10px;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
+        </script>
+        <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.min.js">
+        </script>
+        <script src="add.js">
+
+        </script>
+
+        <script type="text/javascript">
+            var map; // google map object in global scope
+            var infoWindow; // map info window in global scope
+
+            function initialize_map () {
+                // initialize google map, with tempelhof as initial location
+                var latlng = new google.maps.LatLng(52.465, 13.3912);
+                var myOptions = {
+                    zoom: 12,
+                    center: latlng,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                map = new google.maps.Map(document.getElementById("map"), myOptions);
+
+                // if supported by browser, move map to current location
+                if(navigator.geolocation){
+                    navigator.geolocation.getCurrentPosition(function(position) {
+                        // success callback
+                        var currentLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                        map.setCenter(currentLocation);
+                        console.debug("got currentLocation: " + position.coords.latitude + " | " + position.coords.longitude);
+                    }, function (err) {
+                        // error callback
+                        if(err.code == 1) {
+                            // alert("Error: Access is denied!");
+                        } else if( err.code == 2) {
+                            // alert("Error: Position is unavailable!");
+                        }
+                    }, {
+                        timeout: 60000
+                    });
+                }
+
+                // add longpress support see
+                // http://stackoverflow.com/questions/6264853/using-longclick-taphold-with-google-maps-in-jquery-mobile
+                function LongClick(map, length) {
+                    this.length_ = length;
+                    var me = this;
+                    me.map_ = map;
+                    google.maps.event.addListener(map, 'mousedown', function(e) { me.onMouseDown_(e) });
+                    google.maps.event.addListener(map, 'mouseup', function(e) { me.onMouseUp_(e) });   
+                }
+
+                LongClick.prototype.onMouseUp_ = function(e) {
+                    var now = +new Date;
+                    console.debug(now - this.down_, this.length_);
+                    if (now - this.down_ > this.length_) {
+                        google.maps.event.trigger(this.map_, 'longpress', e);
+                    }   
+                }   
+                
+                LongClick.prototype.onMouseDown_ = function() {
+                    this.down_ = +new Date;   
+                }
+
+                new LongClick(map, 1000);
+            }
+
+            // provides feature to select a coordinate to add a new quest
+            function initializeAdding() {
+                var addButton = $("#btn-add-quest");
+                var listener = null;
+
+                infowindow = new google.maps.InfoWindow();
+                infowindow.setContent("<input type='button' value='select position' onclick='selectLocation()'/>");
+
+                var handleLongpress = function(event) {
+                    infowindow.setPosition(event.latLng);
+                    infowindow.open(map);
+                };
+
+                var enablingAdding = function() {
+                    $('#btn-add-quest').hide();
+                    $('#btn-cancel-quest').show();
+                    $('#hint-select-location').show();
+                    listener = google.maps.event.addListener(map, 'longpress', handleLongpress);
+                };
+
+                var disablingAdding = function() {
+                    $('#btn-cancel-quest').hide();
+                    $('#btn-add-quest').show();
+                    $('#hint-select-location').hide();
+                    if(listener) {
+                        google.maps.event.removeListener(listener);
+                    }
+                };
+
+                disablingAdding(); // establish default button state
+                $("#btn-add-quest").bind("click", enablingAdding);
+                $("#btn-cancel-quest").bind("click", disablingAdding);
+            }
+
+            // called after location for a new quest was selected by user
+            function selectLocation() {
+                var coord = infowindow.getPosition();
+                alert(coord);
+            }
+
+            // get's called after page loaded
+            function initialize() {
+                initialize_map();
+                initializeAdding();
+            }
+        </script>
+    </head>
+    <body onload="initialize()">
+        <!-- Home -->
+        <div data-role="page" id="page1">
+            <div data-theme="b" data-role="header">
+                <h3>
+                    Header
+                </h3>
+                <a data-role="button" data-transition="fade" href="#page1" class="ui-btn-right" id="btn-add-quest" data-icon="plus">
+                    add quest
+                </a>
+                <a data-role="button" data-transition="fade" href="#page1" class="ui-btn-right" id="btn-cancel-quest" data-icon="remove">
+                    cancel
+                </a>
+            </div>
+            <div data-role="content" style="padding: 15px">
+                <div id="map"></div>
+                <div id="hint-select-location">Move map and select location of your new quest by long button press.</div>
+            </div>
+        </div>
+        <script>
+            //App custom javascript
+        </script>
+    </body>
+</html>
