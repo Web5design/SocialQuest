@@ -8,7 +8,6 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'thin'
 gem 'devise'
 
-gem 'unicorn'
 gem 'heroku'
 
 group :assets do
@@ -23,5 +22,6 @@ gem 'jquery-rails'
 group :test do
   gem 'rspec-rails'
   gem 'autotest'
+  gem 'typhoeus'
 end
 
