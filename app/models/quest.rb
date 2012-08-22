@@ -1,4 +1,5 @@
 class Quest < ActiveRecord::Base
+	# TODO belongs_to :owner 
   belongs_to :user
   
   validates_presence_of :user_id

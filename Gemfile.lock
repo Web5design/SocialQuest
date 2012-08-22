@@ -54,6 +54,11 @@ GEM
     excon (0.16.1)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    factory_girl (4.0.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.0.0)
+      factory_girl (~> 4.0.0)
+      railties (>= 3.0.0)
     heroku (2.30.3)
       heroku-api (~> 0.3.4)
       launchy (>= 0.3.2)
@@ -157,10 +162,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activeresource
   autotest
   bcrypt-ruby (~> 3.0.0)
   coffee-rails (~> 3.2.1)
   devise
+  factory_girl
+  factory_girl_rails
   heroku
   jquery-rails
   json

@@ -11,6 +11,8 @@ gem 'devise'
 gem 'unicorn'
 gem 'heroku'
 
+gem 'activeresource'
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -20,8 +22,10 @@ end
 
 gem 'jquery-rails'
 
-group :test do
+group :test,:development do
   gem 'rspec-rails'
   gem 'autotest'
+  gem 'factory_girl'
+  gem 'factory_girl_rails'
 end
 
