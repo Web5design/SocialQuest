@@ -17,6 +17,9 @@ class QuestManagementService
   
     private
     def create_quest(user, quest_attributes)
+
+      puts quest_attributes.inspect
+
       quest = Quest.new(quest_attributes)
       quest.user = user
       quest.save
