@@ -39,7 +39,11 @@ function removeValidationError(){
 
 function getQuestFormData(){
 	var data = {
-		title: "mein titel"
+		title: $("#title").val(),
+		description: $("#description").val(),
+		email: $("#email").val(),
+		start_time: $("#date").val(),
+		type: $("#types input:checked").attr("id")
 	}
 	return data;
 }

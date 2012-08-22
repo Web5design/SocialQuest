@@ -1,6 +1,6 @@
 
 
-urlQuest = "/quests";
+urlQuest = "http://socialquest.herokuapp.com/quests/";
 
 function localCreateUser(email){
 	globalUser = {
@@ -18,6 +18,7 @@ function serverFetch(type, id, success, error){
 	$.ajax({
         type: 'GET',
         url: url,
+        dataType: "json",
         success: success,
         error: error
     });
@@ -27,8 +28,10 @@ function serverCreate(type, data, success, error){
 	var url = urlQuest;
 	$.ajax({
         type: 'POST',
+        contentType: 'application/json',
+        dataType: "json",
         url: url,
-        json: data,
+        data: data,
         success: success,
         error: error
     });
@@ -41,7 +44,9 @@ function serverUpdate(type, id, data, success, error){
 	}
 	$.ajax({
         type: 'PUT',
-        json: data,
+        contentType: 'application/json',
+        dataType: "json",
+        data: data,
         url: url,
         success: success,
         error: error

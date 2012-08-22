@@ -7,6 +7,10 @@ __PREQUISITES__
     git clone https://github.com/SocialQuest/SocialQuest.git .
     cd SocialQuest
     bundle install
+    psql template1
+      create role social_quest createdb login;
+      \q
+    rake db:setup
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
