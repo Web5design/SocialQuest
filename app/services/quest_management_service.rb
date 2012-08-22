@@ -4,7 +4,7 @@ class QuestManagementService
   class << self
     def create!(user, quest_attributes)
       quest = create_quest(user, quest_attributes)
-      success = quest.valid? ? true : false
+      success = quest.errors.present? ? false : true
       
       [success, quest]
     end
@@ -17,10 +17,12 @@ class QuestManagementService
   
     private
     def create_quest(user, quest_attributes)
-      user.quests.create(quest_attributes)
-    rescue
+
+      puts quest_attributes.inspect
+
       quest = Quest.new(quest_attributes)
-      quest.valid?
+      quest.user = user
+      quest.save
       quest
     end
     
