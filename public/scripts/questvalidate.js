@@ -1,13 +1,6 @@
-
-
-
-
-
-
 function validationError(id, errorMsg){
 	$("#" + id).after($('<p class="validationError"></p>').text(errorMsg))
 }
-
 
 function validateNotEmpty(id, prettyName){
 	if ($("#" + id).val() == ""){
@@ -44,15 +37,27 @@ function removeValidationError(){
 	$(".validationError").remove()
 }
 
+function getQuestFormData(){
+	var data = {
+		title: "mein titel"
+	}
+	return data;
+}
+
+
+
 $(function(){
 
 	$("#submit").click(function(event){
 		event.preventDefault()
-		
-		alert("valiation successfull: " + validateQuest())
-		
+		if (validateQuest()){
+			var data = getQuestFormData();
+			serverCreate("quest",data,
+				function(){console.log("success serverCreate")},
+				function(e){console.log("damn serverCreate"+ e)});
+		}
+	
 	})
-
 })
 
 /*

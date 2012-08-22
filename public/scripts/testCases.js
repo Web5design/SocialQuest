@@ -1,0 +1,3 @@
+serverFetch("quest",8,function(responseText){console.log("success serverfetch"+JSON.stringify(responseText))},function(e){console.error("damn serverFetch" + e)});
+//serverCreate("quest","so much data",function(){console.log("success serverCreate")},function(e){console.log("damn serverCreate"+ e)});
+//serverUpdate("quest",8,"so much data",function(){console.log("success serverUpdate" + e)},function(e){console.log("damn serverUpdate"+ e)});
