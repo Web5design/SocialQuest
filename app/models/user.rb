@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :token_authenticatable, :confirmable
 
   attr_accessible :email, :password, :password_confirmation, :remember_me
+  
+  def password_required?
+    false
+  end
 end
