@@ -5,7 +5,7 @@ gem 'rails', '3.2.8'
 gem 'pg'
 gem 'json'
 gem 'bcrypt-ruby', '~> 3.0.0'
-
+gem 'thin'
 gem 'devise'
 
 gem 'unicorn'
