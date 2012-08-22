@@ -11,7 +11,7 @@ describe UserRepository do
     end
     
     it "returns false and nil when no user is found" do
-      subject = UserRepository.find(1) 
+      subject = UserRepository.find(1)
       subject[0].should == false
       subject[1].should == nil
     end
