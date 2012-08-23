@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '1.9.3'
 gem 'rails', '3.2.8'
 
 gem 'pg'
@@ -10,6 +11,7 @@ gem 'devise'
 
 gem 'unicorn'
 gem 'heroku'
+gem 'acts_as_api'
 
 
 gem 'activeresource'
@@ -28,5 +30,6 @@ group :test,:development do
   gem 'autotest'
   gem 'factory_girl'
   gem 'factory_girl_rails'
+  gem 'mysql2'
 end
 
