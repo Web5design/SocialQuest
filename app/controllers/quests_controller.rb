@@ -16,14 +16,12 @@ class QuestsController < ApplicationController
     	raise "Error, return json error?"
     end
   end
-
+  
   def index
-  	users = User.all
-		render :json => users
-  	# respond_to do |format|
-  	# 	format.html { render :json => users }
-  	# 	format.json { render :json => users }
-  	# end	
+  	@quests = Quest.all
+    respond_to do |format|
+      format.json { render_for_api :public, :json => @quests, :root => :quests }
+    end
   end
 
 end
