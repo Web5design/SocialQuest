@@ -9,9 +9,44 @@
         <link rel="stylesheet" href="css/validationEngine.jquery.css" type="text/css"/>
 		<link href="css/mobiscroll-2.0.1.custom.min.css" rel="stylesheet" type="text/css" />
 		<style type="text/css">
-        .validationError{
-            background: red;
-        }
+        	.validationError{
+            	background: red;
+        	}
+
+        	#typeChoserLegend {
+        	
+        		text-shadow: none;
+        		color: #ffffff;
+        	}
+
+        	#uploadPictureGroup {
+        		width: 200px;
+        		height: 250px;
+        		float: left;
+        		padding-right: 15px;
+        	}
+
+        	#uploadPictureGroup a {
+        		height: 150px;
+        		padding-top: 50px;
+        	}
+
+        	#descriptionGroup {
+        		clear: both;
+        	}
+
+        	#descriptionGroup textarea {
+        		height: 200px;
+        	}
+
+        	.ui-page {
+        		background: #2f559a;
+        	}
+
+        	label {
+        		color: #ffffff;
+        		text-shadow: none;
+        	}
 
         </style>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
@@ -21,34 +56,12 @@
         <!--<script src="scripts/questvalidate.js"></script>-->
 		<script src="js/jquery.validationEngine-de.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
+        <script src="scripts/storage.js"></script> 
 		<script src="js/mobiscroll-2.0.1.custom.min.js" type="text/javascript"></script>
-        <!--<script src="scripts/storage.js"></script> -->
-		<script src="http://malsup.github.com/jquery.form.js"></script>
-		<!--<script src="js/application.js"></script>-->
-		
     	<script>
 				jQuery(document).ready(function(){
 					// binds form submission and fields to the validation engine
-					jQuery("#jsonForm").validationEngine();
-					//new setupAjaxForm('formID', function(){
-					$('#jsonForm').ajaxForm({ 
-						dataType:  'json', 
-						//data: dataString,
-						// success identifies the function to invoke when the server response 
-						// has been received 
-						//success:   alert("Thank you for submitting your Quest!")
-						success: function (data) {
-						  if (data.response == 'captcha') {
-						      alert('captcha');
-						  } else if (data.response == 'error') {
-						      alert('sorry there was an error');
-						  } else if (data.response == 'success') {
-						      alert('sucess');
-                          
-						  };
-						}
-						//alert("Thank you for submitting your Quest!")
-					});
+					jQuery("#formID").validationEngine();
 				});
 				$(function(){
 				    var now = new Date();
@@ -68,27 +81,73 @@
 				        mode: 'scroller'
 				    });
 				});
-				
 		</script>
     </head>
-    <body>
-        <!-- Home -->
+    <body>       
+    	<!-- Home -->
         <div data-role="page" id="page1">
             <div data-role="content" style="padding: 15px">
-				<form id="jsonForm" action="/quests" method="post"> 
-				    Title: <input type="text" name="title" value="Hello JSON" /> 
-					<input name="user_id" type="hidden" value="1" />
-					Type:<input type="radio" name="type" id="types-1" value="shout" checked="checked" />
-		         	<label for="types-1">shout</label>
-					<label for="start_time">Start Datum:</label>
-                    <input name="start_time" id="start_time" placeholder="" value="" type="text" class="validate[required] text-input datepicker" data-prompt-position="topLeft" />
-					<label for="end_time">End Datum:</label>
-                    <input name="end_time" id="end_time" placeholder="" value="" type="text" class="validate[required] text-input datepicker" data-prompt-position="topLeft" />
-					
-					<label for="textarea2">Beschreibung:</label>
-                    <textarea name="description" id="description" placeholder="Beschreibung" class="validate[required]" data-prompt-position="topLeft"></textarea>				    
-					<input type="submit" value="Echo as JSON" /> 
-				</form>
+				<form id="formID" class="formular" action style="position:relative;">
+				
+					<div>
+						<legend id="typeChoserLegend" >Choose Type:</legend>
+					    <fieldset data-role="controlgroup" data-type="horizontal">
+					         	<input type="radio" name="type" id="radio-choice-1" value="choice-1" checked="checked" />
+					         	<label for="radio-choice-1">shout</label>
+
+					         	<input type="radio" name="type" id="radio-choice-2" value="choice-2"  />
+					         	<label for="radio-choice-2">quest</label>
+
+					         	<input type="radio" name="type" id="radio-choice-3" value="choice-3"  />
+					         	<label for="radio-choice-3">project</label>
+
+					         	<input type="radio" name="type" id="radio-choice-4" value="choice-4"  />
+					         	<label for="radio-choice-4">meeting</label>
+								<input type="radio" name="type" id="radio-choice-5" value="choice-5"  />
+					         	<label for="radio-choice-5">background story</label>
+								<input type="radio" name="type" id="radio-choice-6" value="choice-6"  />
+					         	<label for="radio-choice-6">organization</label>
+					    </fieldset>
+					</div>
+					<div id="uploadPictureGroup">
+						<a href="#" data-role="button">Upload picture</a>  
+					</div>
+	                <div>
+	                    <fieldset data-role="controlgroup">
+	                        <label for="textinput2">Title:</label>
+	                        <input name="title" id="title" placeholder="Title" value="" type="text" class="validate[required]" data-prompt-position="topLeft"/>
+	                    </fieldset>
+	                </div>
+	                             
+	                <div>
+	                    <fieldset data-role="controlgroup">
+	                        <label for="start_time">Start Date:</label>
+	                        <input name="start_date" id="start_time" placeholder="" value="" type="text" class="validate[required] text-input datepicker" data-prompt-position="topLeft" />
+	                    </fieldset>
+					</div>
+					<div>
+						<fieldset data-role="controlgroup">
+	                        <label for="end_time">End Date:</label>
+	                        <input name="end_date" id="end_time" placeholder="" value="" type="text" class="validate[required] text-input datepicker" data-prompt-position="topLeft" />
+	                    </fieldset>
+	                </div>
+	                <!--
+					<div>
+	                    <fieldset data-role="controlgroup">
+	                        <label for="mediaUrl">Media Url (TODO: improve usabillity)</label>
+	                        <input name="" id="mediaUrl" placeholder="" value="" type="text" />
+	                    </fieldset>
+	                </div>
+	            -->
+	                <div id="descriptionGroup">
+	                    <fieldset data-role="controlgroup">
+	                        <label for="textarea2">Description:</label>
+	                        <textarea name="description" id="description" placeholder="Description" class="validate[required]" data-prompt-position="topLeft"></textarea>
+	                    </fieldset>
+	                </div> 
+                	<input value="Submit" type="submit" id="submit" />
+                	<input type="hidden" name="media_url" />
+                </form>
             </div>
         </div>
         <script>
