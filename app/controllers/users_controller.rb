@@ -1,4 +1,4 @@
-class Api::UsersController < Api::BaseController  
+class UsersController < Api::BaseController  
   def show
     render json: params[:id]
   end
