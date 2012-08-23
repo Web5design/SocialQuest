@@ -11,6 +11,7 @@ class QuestsController < ApplicationController
       respond_to do |format|
         #format.html  # index.html.erb
         format.json  { render :json => quest,:status => "201 Created" }
+        format.html { redirect_to('/quest') }
       end
       #render :json => quest, :status => "201 Created"
     else
