@@ -61,10 +61,22 @@
 		
     	<script>
 				jQuery(document).ready(function(){
+                    $.urlParam = function(name){
+                        var results = new RegExp('[\\?&]' + name +
+                                '=([^&#]*)').exec(window.location.href);
+                        return results[1] || 0;
+                    }
 					// binds form submission and fields to the validation engine
 					jQuery("#questForm").validationEngine();
 					//new setupAjaxForm('formID', function(){
 					$('#questForm').submit(function(){
+
+                        var longitude = $.urlParam("long");
+                        var latitude = $.urlParam("lat");
+                        $("#questForm").append('<input name="longitude" value="' + longitude + '" type="hidden"/>');
+                        $("#questForm").append('<input name="latitude" value="' + latitude + '" type="hidden"/>');
+
+
 						$(':submit', this).click(function() {
 						    return false;
 						});

@@ -11,6 +11,7 @@ gem 'devise'
 
 gem 'unicorn'
 gem 'heroku'
+gem 'acts_as_api'
 
 gem 'activeresource'
 
