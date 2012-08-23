@@ -1,6 +1,6 @@
 # encoding: UTF-8
 
-class Api::QuestsController < Api::BaseController
+class QuestsController < BaseController
   def create
     ## Abstract
     # current_user ||= UserRegistrationService.register!(params[:user][:email])
