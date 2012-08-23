@@ -12,6 +12,7 @@ class QuestManagementService
     def update!(quest,quest_attributes)
       quest = update_quest(quest,quest_attributes)
       success = quest.errors.present? ? false : true
+      
       [success,quest]
     end
   
