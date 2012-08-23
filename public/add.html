@@ -130,7 +130,8 @@
             // called after location for a new quest was selected by user
             function selectLocation() {
                 var coord = infowindow.getPosition();
-                alert(coord);
+                console.log(coord);
+                window.location = "http://" + window.location.host + "/quest?long="+coord.Xa+"&lat="+coord.Ya;
             }
 
             // get's called after page loaded
