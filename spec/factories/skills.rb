@@ -2,5 +2,6 @@
 
 FactoryGirl.define do
   factory :skill do
+    name "gardening"
   end
 end
