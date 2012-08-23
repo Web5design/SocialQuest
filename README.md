@@ -3,6 +3,7 @@ Copyright 2012 SocialQuest Verein (TU Projects, TU Berlin, www.socialquest.org)
 
 __PREQUISITES__
 
+    gem install bundler --pre
     brew install postgresql
     git clone https://github.com/SocialQuest/SocialQuest.git .
     cd SocialQuest
