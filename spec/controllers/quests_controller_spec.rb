@@ -1,7 +1,5 @@
 require 'spec_helper'
 
-
-
 describe QuestsController do
   def valid_session
     {}
@@ -14,14 +12,12 @@ describe QuestsController do
 			raise "got an error" if @test_user.nil?
 		end
 
-
-
-
 	  it "should be 201 created" do
 	  	quest_attributes = FactoryGirl.attributes_for(:quest)
 
       expect {
-        post :create, quest_attributes
+        request.env["HTTP_ACCEPT"] = "application/json"
+        post :create, quest_attributes, {'Content-Type'=>'application/json'}
         response.code.should eq("201")
       }.to change(Quest, :count).by(+1)
 

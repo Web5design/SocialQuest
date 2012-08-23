@@ -15,6 +15,7 @@ class QuestsController < ApplicationController
       end
       #render :json => quest, :status => "201 Created"
     else
+      puts "failed"
     	raise "Error, return json error?"
     end
   end
