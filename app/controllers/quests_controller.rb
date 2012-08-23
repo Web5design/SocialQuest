@@ -8,7 +8,11 @@ class QuestsController < ApplicationController
     success, quest = QuestManagementService.create!(user, params)
 
     if success && quest.id?
-      render :json => quest, :status => "201 Created"
+      respond_to do |format|
+        #format.html  # index.html.erb
+        format.json  { render :json => quest,:status => "201 Created" }
+      end
+      #render :json => quest, :status => "201 Created"
     else
     	raise "Error, return json error?"
     end
