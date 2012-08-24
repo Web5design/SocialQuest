@@ -24,13 +24,11 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'factory_girl'
+gem 'factory_girl_rails'
 
 group :test,:development do
   gem 'rspec-rails'
   gem 'autotest'
-  gem 'factory_girl'
-  #gem 'factory_girl_rails'
   #gem 'mysql2'
 end
 
