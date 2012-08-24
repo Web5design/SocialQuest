@@ -142,15 +142,21 @@
 
                 // // load quests from api
                 var url = "http://socialquest.herokuapp.com/quests"
-                jQuery.get( url, {json:true}, 
-                    function add_quest_points_on_map(quests, textStatus) {
-                        console.log (url + ' : mapping');
+                jQuery.getJSON( url, {json:true}, 
+                    function (quests, textStatus) {
+                        console.log (quests);
+                        console.log (url + ' : mapping :: status:' + textStatus);
                         $.each(quests, function(index, quest) {
+                                console.log (index);
+
                                 var marker = new google.maps.Marker({
                                     position: new google.maps.LatLng(quest.longitude, quest.latitude),
                                     map: map,
                                     // icon: icons[quest.type]
                                 });
+
+
+                            console.log ('quest: ' + quest.title + ' :: ' + quest.longitude );
 
                             var contentString = '<div>' +
                                 '<h2 id="heading" class="heading">' + quest.title + '</h2>' +
