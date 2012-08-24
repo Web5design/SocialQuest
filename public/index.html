@@ -134,11 +134,43 @@
                 window.location = "http://" + window.location.host + "/quest?long="+coord.Xa+"&lat="+coord.Ya;
             }
 
+            var quests = {};
             // get's called after page loaded
             function initialize() {
                 initialize_map();
                 initializeAdding();
-            }
+
+                // // load quests from api
+                var url = "http://socialquest.herokuapp.com/quests"
+                jQuery.get( url, {json:true}, 
+                    function add_quest_points_on_map(quests, textStatus) {
+                        console.log (url + ' : mapping');
+                        $.each(quests, function(index, quest) {
+                                var marker = new google.maps.Marker({
+                                    position: new google.maps.LatLng(quest.longitude, quest.latitude),
+                                    map: map,
+                                    // icon: icons[quest.type]
+                                });
+
+                            var contentString = '<div>' +
+                                '<h2 id="heading" class="heading">' + quest.title + '</h2>' +
+                                '<div id="bodyContent">' +
+                                '<p>'+ quest.description + '</p>'+
+                                '<p>'+ quest.type + '</p>'+
+                                '</div>'+
+                                '</div>';
+
+                            var questInfo = new google.maps.InfoWindow({
+                                content: contentString
+                            });
+
+                            google.maps.event.addListener(marker, 'click', function() {
+                                  questInfo.open(map,marker);
+                            });
+                        });
+                    }
+                );     
+           }
         </script>
     </head>
     <body onload="initialize()">
