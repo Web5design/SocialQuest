@@ -8,10 +8,7 @@ class QuestsController < ApplicationController
     success, quest = QuestManagementService.create!(user, params)
 
     if success && quest.id?
-      respond_to do |format|
-        format.json  { render :json => quest, :status => "201 Created" }
-        format.html { redirect_to quest }
-      end
+      render :json => quest, :status => "201 Created"
     else
     	raise "Error, return json error?"
     end
@@ -19,9 +16,7 @@ class QuestsController < ApplicationController
   
   def index
   	@quests = Quest.all
-    respond_to do |format|
-      format.json { render_for_api :public, :json => @quests, :root => :quests }
-    end
+    render json: @quests
   end
 
 end
