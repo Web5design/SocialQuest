@@ -78,6 +78,21 @@
                         timeout: 60000
                     });
                 }
+				var image = 'http://i.stack.imgur.com/orZ4x.png';
+				var marker = new google.maps.Marker({
+				        position: pos,
+				        map: map,
+				        icon: image
+				    });  
+				marker.setMap(map);
+
+				var image = 'http://i.stack.imgur.com/KOh5X.png';
+				var marker = new google.maps.Marker({
+				    position: pos,
+				    map: map,
+				    icon: image
+				});  
+				marker.setMap(map);
 
                 // add longpress support see
                 // http://stackoverflow.com/questions/6264853/using-longclick-taphold-with-google-maps-in-jquery-mobile
