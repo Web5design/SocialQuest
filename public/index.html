@@ -49,6 +49,17 @@
                 };
                 map = new google.maps.Map(document.getElementById("map"), myOptions);
 
+				if (google.loader.ClientLocation) 
+				    {        
+				        var center = new google.maps.LatLng(
+				            google.loader.ClientLocation.latitude,
+				            google.loader.ClientLocation.longitude
+				        );
+				        var zoom = 8;
+
+				        map.setCenter(center, zoom);
+				    }
+
                 // if supported by browser, move map to current location
                 if(navigator.geolocation){
                     navigator.geolocation.getCurrentPosition(function(position) {
@@ -184,7 +195,7 @@
         <div data-role="page" id="page1">
             <div data-theme="b" data-role="header">
                 <h3>
-                    Header
+                    SocialQuest
                 </h3>
                 <a data-role="button" data-transition="fade" href="#page1" class="ui-btn-right" id="btn-add-quest" data-icon="plus">
                     add quest
