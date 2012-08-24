@@ -1,5 +1,4 @@
 
-
 urlQuest = "/quests";
 
 function localCreateUser(email){

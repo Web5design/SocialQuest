@@ -9,9 +9,9 @@ class QuestsController < ApplicationController
 
     @success, @quest = QuestManagementService.create!(user, params)
     if @success && @quest.id?
-      render :json => quest, :status => "201 Created"
+      render :json => @quest.errors#, :status => "201 Created"
     else
-      render :json => quest, :status => "400 Failed"
+      render :json => @quest.errors, status: :unprocessable_entity
     end
   end
   
