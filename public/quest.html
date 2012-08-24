@@ -7,55 +7,8 @@
         </title>
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
         <link rel="stylesheet" href="css/validationEngine.jquery.css" type="text/css"/>
+        <link rel="stylesheet" href="quest.css" type="text/css"/>
 		<link href="css/mobiscroll-2.0.1.custom.min.css" rel="stylesheet" type="text/css" />
-		<style type="text/css">
-        	.validationError{
-            	background: red;
-        	}
-
-        	#typeChoserLegend {
-        	
-        		text-shadow: none;
-        		color: #ffffff;
-        	}
-
-        	#uploadPictureGroup {
-        		width: 200px;
-        		height: 250px;
-        		float: left;
-        		padding-right: 15px;
-        	}
-
-        	#uploadPictureGroup a {
-        		height: 150px;
-        		padding-top: 50px;
-        	}
-
-        	#descriptionGroup {
-        		clear: both;
-        	}
-
-        	#descriptionGroup textarea {
-        		height: 200px;
-        	}
-
-        	.ui-page {
-        		background: #2f559a;
-        	}
-
-        	label {
-        		color: #ffffff;
-        		text-shadow: none;
-        	}
-
-			label.ui-input-text { 
-				display: block; 
-			}
-			.min-width-480px label.ui-input-text { 
-				display: inline-block; 
-			}
-
-        </style>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
         </script>
         <script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.min.js">
@@ -157,20 +110,32 @@
 						<legend id="typeChoserLegend" >Choose Type:</legend>
 					    <fieldset data-role="controlgroup" data-type="horizontal"class="ui-grid">
 					         	<input type="radio" name="kind" id="radio-choice-1" value="shout" checked="checked" />
-					         	<label for="radio-choice-1">shout</label>
+					         	<label for="radio-choice-1">
+                                    <img src="images/icons/Micro_512x512.png" />
+                                </label>
 
 					         	<input type="radio" name="kind" id="radio-choice-2" value="quest"  />
-					         	<label for="radio-choice-2">quest</label>
+					         	<label for="radio-choice-2">
+                                    <img src="images/icons/Exclamation_Mark_512x512.png" />
+                                </label>
 
 					         	<input type="radio" name="kind" id="radio-choice-3" value="project"  />
-					         	<label for="radio-choice-3">project</label>
+					         	<label for="radio-choice-3">
+                                    <img src="images/icons/Light_Bulb_512x512.png" />
+                                </label>
 
 					         	<input type="radio" name="kind" id="radio-choice-4" value="meeting"  />
-					         	<label for="radio-choice-4">meeting</label>
+					         	<label for="radio-choice-4">
+                                    <img src="images/icons/Clock_512x512.png" />
+                                </label>
 								<input type="radio" name="kind" id="radio-choice-5" value="background story"  />
-					         	<label for="radio-choice-5">background story</label>
+					         	<label for="radio-choice-5">
+                                    <img src="images/icons/Document_512x512.png" />
+                                </label>
 								<input type="radio" name="kind" id="radio-choice-6" value="organization"  />
-					         	<label for="radio-choice-6">organization</label>
+					         	<label for="radio-choice-6">
+                                    <img src="images/icons/Home_512x512.png" />
+                                </label>
 					    </fieldset>
 					</div>
 					<div class="ui-grid-a">

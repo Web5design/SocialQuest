@@ -1,0 +1,50 @@
+.validationError{
+    background: red;
+}
+
+#typeChoserLegend {
+
+    text-shadow: none;
+    color: #ffffff;
+}
+
+#uploadPictureGroup {
+    width: 200px;
+    height: 250px;
+    float: left;
+    padding-right: 15px;
+}
+
+#uploadPictureGroup a {
+    height: 150px;
+    padding-top: 50px;
+}
+
+#descriptionGroup {
+    clear: both;
+}
+
+#descriptionGroup textarea {
+    height: 200px;
+}
+
+.ui-page {
+    background: #2f559a;
+}
+
+label {
+    color: #ffffff;
+    text-shadow: none;
+}
+
+label.ui-input-text { 
+    display: block; 
+}
+.min-width-480px label.ui-input-text { 
+    display: inline-block; 
+}
+
+label[for|="radio-choice"]  img {
+  width: 20px;
+}
+
