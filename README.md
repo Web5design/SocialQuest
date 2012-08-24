@@ -27,4 +27,5 @@ __Required Facebook Sope__
 __Graphics Frontend__
 
 Robert just added some [fancy icons](https://github.com/SocialQuest/SocialQuest/issues/2#issuecomment-7991162)
+
 [Mockup user info] (https://docs.google.com/file/d/0B_hdrRVCQihzdW1EbjUxNnlGTGc/edit)
