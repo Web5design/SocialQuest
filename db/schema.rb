@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120824094145) do
+ActiveRecord::Schema.define(:version => 20120824102522) do
 
   create_table "quests", :force => true do |t|
     t.datetime "start_time"
@@ -25,6 +25,11 @@ ActiveRecord::Schema.define(:version => 20120824094145) do
     t.float    "longitude",   :null => false
     t.integer  "skill_id"
     t.string   "kind"
+  end
+
+  create_table "quests_skills", :id => false, :force => true do |t|
+    t.integer "quest_id"
+    t.integer "skill_id"
   end
 
   create_table "skills", :force => true do |t|
