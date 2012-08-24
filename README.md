@@ -22,3 +22,9 @@ Unless required by applicable law or agreed to in writing, software distributed 
 __Required Facebook Sope__
 
     'email,publish_actions,publish_stream,user_location,user_likes,user_birthday' 
+
+
+__Graphics Frontend__
+
+Robert just added some [fancy icons](https://github.com/SocialQuest/SocialQuest/issues/2#issuecomment-7991162)
+[Mockup user info] (https://docs.google.com/file/d/0B_hdrRVCQihzdW1EbjUxNnlGTGc/edit)
