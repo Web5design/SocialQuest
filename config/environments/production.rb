@@ -66,4 +66,23 @@ SocialQuest::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   
   config.action_mailer.default_url_options = { host: 'socialquest.heroku.com' }
+
+
+  # smtp settings using hack2learn account
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    # address: "mail.hack2learn.org",
+    address: "smtp.sendgrid.net",
+    domain: "heroku.com",
+    port: 587,
+    authentication: "plain",
+    # user_name: "sq1@hack2learn.org",
+    # password: ENV['SMTP_PASSWORD'],
+    user_name: ENV["SENDGRID_USERNAME"],
+    password: ENV['SENDGRID_PASSWORD']
+  }
+
+  config.action_mailer.raise_delivery_errors = true
+
+
 end

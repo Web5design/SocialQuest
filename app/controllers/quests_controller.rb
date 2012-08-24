@@ -17,7 +17,11 @@ class QuestsController < ApplicationController
   
   def index
   	@quests = Quest.all
-  	render :json => @quests.to_json
+    
+    headers["Access-Control-Allow-Origin"] = "*"
+
+    render :json => @quests.to_json
+
   end
 
 end
