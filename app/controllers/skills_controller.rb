@@ -3,9 +3,10 @@ class SkillsController < ApplicationController
   # GET /skills
   def index
     @skills = Skill.all
-    respond_to do |format|
-      format.json { render_for_api :public, :json => @skills, :root => :skills }
-    end
+    render :json => @skills.to_json
+    #respond_to do |format|
+    #  format.json { render_for_api :public, :json => @skills, :root => :skills }
+    #end
   end
 
   # GET /skills/1
