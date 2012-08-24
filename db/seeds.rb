@@ -8,14 +8,9 @@
 
 
 FactoryGirl.create_list(:quest, 3)
-FactoryGirl.create_list(:user, 3)
+#FactoryGirl.create_list(:user, 3)
 
-FactoryGirl.create(:type, name: 'Shout')
-FactoryGirl.create(:type, name: 'Quest')
-FactoryGirl.create(:type, name: 'Project')
-FactoryGirl.create(:type, name: 'Meeting')
-FactoryGirl.create(:type, name: 'Background Story')
-FactoryGirl.create(:type, name: 'Organization')
+FactoryGirl.create(:quest, title: 'Test Quest', description: 'Quest description', kind: 'shout', skill_id: 1, start_time: DateTime.now, end_time: DateTime.now + 1.day, latitude: '1.2345', longitude: '7.3556')
 
 FactoryGirl.create(:skill, name: 'Reparing')
 FactoryGirl.create(:skill, name: 'Engineering')

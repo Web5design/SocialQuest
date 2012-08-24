@@ -30,6 +30,6 @@ group :test,:development do
   gem 'autotest'
   gem 'factory_girl'
   gem 'factory_girl_rails'
-  gem 'mysql2'
+  #gem 'mysql2'
 end
 

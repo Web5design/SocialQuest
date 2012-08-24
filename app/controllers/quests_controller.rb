@@ -16,7 +16,9 @@ class QuestsController < ApplicationController
   
   def index
   	@quests = Quest.all
-    render json: @quests
+  	respond_to do |format|
+      format.json { render_for_api :public, :json => @quests, :root => :quests }
+    end
   end
 
 end
