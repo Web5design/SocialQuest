@@ -19,6 +19,7 @@ var SocialQuest = {
           throw {
             name: "Error",
             message: constr + " doesn't exist"
+
           };
         }
 

@@ -152,15 +152,6 @@
                         console.log (quests);
                         console.log (url + ' : mapping :: status:' + textStatus);
                         $.each(quests, function(index, quest) {
-                                console.log (index);
-
-
-                                var marker = new google.maps.Marker({
-                                    position: new google.maps.LatLng(quest.longitude, quest.latitude),
-                                    map: map,
-                                    // icon: icons[quest.type]
-                                });
-
 
                                 try {
                                     var icon = SocialQuest.IconFactory.factory(quest.kind);
@@ -169,10 +160,20 @@
                                     gicon.size = new google.maps.Size(512,512);
                                     gicon.scaledSize = new google.maps.Size(20,20);
                                     gicon.anchor = new google.maps.Point(0,0);
-                                    marker.setIcon(gicon);
                                 } catch (e){
                                     console.log(e);
                                 }
+
+
+                                var marker = new google.maps.Marker({
+                                    position: new google.maps.LatLng(quest.longitude, quest.latitude),
+                                    map: map,
+                                    // icon: icons[quest.type]
+                                });
+
+                                marker.setIcon(gicon);
+
+
 
 
 
@@ -187,7 +188,10 @@
                                 '</div>';
 
                             var questInfo = new google.maps.InfoWindow({
-                                content: contentString
+                                content: contentString,
+                                zIndex:500,
+                                position:marker.getPosition(),
+                                pixelOffset: new google.maps.Size(-246,0)
                             });
 
                             google.maps.event.addListener(marker, 'click', function() {
